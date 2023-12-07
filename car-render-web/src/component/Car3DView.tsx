@@ -1,13 +1,12 @@
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, ScrollControls } from '@react-three/drei';
 import { McLaren } from "../models/McLaren";
+import { WawaOffice } from "../models/WawaOffice";
 
 type Car3DViewProps = {
-  value: number;
 }
 
 export const Car3DView = (props: Car3DViewProps) => {
-  const { value } = props;
 
   return <Canvas
     camera={{
@@ -20,6 +19,6 @@ export const Car3DView = (props: Car3DViewProps) => {
     {/* <ScrollControls pages={3} damping={0.25}>
       <WawaOffice />
     </ScrollControls> */}
-    <McLaren value={value} />
+    <McLaren />
   </Canvas>
 }
