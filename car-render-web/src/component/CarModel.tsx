@@ -29,6 +29,7 @@ export const CarModel = (props: CarModelProps) => {
   const { gltfPath, metadata } = props;
   const gltf = useGLTF(gltfPath);
   const { scene } = gltf;
+  console.log(scene);
 
   return <CarModelNode gltf={gltf} metadata={metadata} node={scene} />
 }
