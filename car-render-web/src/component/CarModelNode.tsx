@@ -2,13 +2,13 @@ import { ObjectMap } from "@react-three/fiber"
 import { type GLTF } from 'three-stdlib';
 import { Group, Mesh, Object3D, Object3DEventMap } from "three"
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
-import { ModelMetadata } from "./CarModel";
 import gsap from 'gsap';
+import { Model3DMetadata } from "../models/Model3D";
 
 
 type CarModelNodeProps = {
   gltf: GLTF & ObjectMap; // probably unecessary
-  metadata: ModelMetadata;
+  metadata: Model3DMetadata;
   node: Object3D<Object3DEventMap>;
 }
 

@@ -24,3 +24,4 @@ yarn-error.log*
 
 *.glb
 *.blend
+public/models
