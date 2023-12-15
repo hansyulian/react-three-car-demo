@@ -2,12 +2,15 @@ import { Canvas, useThree } from "@react-three/fiber"
 import { OrbitControls, PerspectiveCamera, Stage, } from '@react-three/drei';
 import { CarModel, } from "./CarModel";
 import { availableModels } from "../data/carData";
-import { useLayoutEffect } from "react";
+import { config } from "../config/config";
 
 const usedModel = availableModels.mclaren;
 
 export const Car3DView = () => {
-  const { metadata, modelPath } = usedModel;
+  const { metadata, modelName } = usedModel;
+
+  const calculatedModelPath = `${config.baseModelPath}/${modelName}`;
+  console.log(calculatedModelPath);
 
   return <Canvas
     gl={{ preserveDrawingBuffer: true }}
@@ -22,7 +25,7 @@ export const Car3DView = () => {
         shadows
         adjustCamera
       >
-        <CarModel gltfPath={modelPath} metadata={metadata} />
+        <CarModel gltfPath={calculatedModelPath} metadata={metadata} />
       </Stage>
     </group>
   </Canvas>

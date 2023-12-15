@@ -1,6 +1,6 @@
 
 export type Model3D = {
-  modelPath: string;
+  modelName: string;
   metadata: Model3DMetadata;
 }
 

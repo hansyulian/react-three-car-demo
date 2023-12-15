@@ -2,7 +2,7 @@ import { Model3D } from "../models/Model3D";
 
 export const availableModels: Record<string, Model3D> = {
   mercedez: {
-    modelPath: "./models/mercedes-benz.glb",
+    modelName: "mercedes-benz.glb",
     metadata: {
       components: {
         leftDoor: {
@@ -49,7 +49,7 @@ export const availableModels: Record<string, Model3D> = {
     }
   },
   mclaren: {
-    modelPath: "./models/mclaren.glb",
+    modelName: "mclaren.glb",
     metadata: {
       components: {
         leftDoor: {
