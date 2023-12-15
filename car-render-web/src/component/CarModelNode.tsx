@@ -57,6 +57,8 @@ export const CarModelNode = (props: CarModelNodeProps) => {
     case 'Mesh':
       const meshNode = node as Mesh;
       return <mesh
+        castShadow
+        receiveShadow
         name={meshNode.name}
         position={meshNode.position}
         rotation={meshNode.rotation}

@@ -1,6 +1,8 @@
 import { useGLTF } from "@react-three/drei";
 import { CarModelNode } from "./CarModelNode";
 import { Model3DMetadata } from "../models/Model3D";
+import { useEffect, useLayoutEffect } from "react";
+import { AnimationMixer } from "three";
 
 type CarModelProps = {
   gltfPath: string;
@@ -11,7 +13,14 @@ export const CarModel = (props: CarModelProps) => {
   const { gltfPath, metadata } = props;
   const gltf = useGLTF(gltfPath);
   const { scene } = gltf;
-  console.log(scene);
+  useLayoutEffect(() => {
+    scene.traverse((obj: any) => {
+      if (obj.isMesh) {
+        obj.castShadow = obj.receiveShadow = true
+        obj.material.envMapIntensity = 0.8
+      }
+    })
+  }, [scene])
 
   return <CarModelNode gltf={gltf} metadata={metadata} node={scene} />
 }

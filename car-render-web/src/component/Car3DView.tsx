@@ -1,23 +1,29 @@
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, } from '@react-three/drei';
+import { Canvas, useThree } from "@react-three/fiber"
+import { OrbitControls, PerspectiveCamera, Stage, } from '@react-three/drei';
 import { CarModel, } from "./CarModel";
 import { availableModels } from "../data/carData";
+import { useLayoutEffect } from "react";
+
+const usedModel = availableModels.mclaren;
 
 export const Car3DView = () => {
-  const { metadata, modelPath } = availableModels.mclaren;
+  const { metadata, modelPath } = usedModel;
 
-  return <><Canvas
-    camera={{
-      fov: 100,
-      position: [2.3, 1.5, 2.3],
-    }}
+  return <Canvas
+    gl={{ preserveDrawingBuffer: true }}
+    shadows
+    dpr={[1, 1.5]}
+    camera={{ position: [5, 5, 5], fov: 50 }}
   >
-    <ambientLight intensity={5} />
-
-    {/* <pointLight position={[1, 1, 1]} intensity={5} /> */}
-    <OrbitControls enablePan={true} />
-    <directionalLight position={[5, 5, 5]} intensity={10} />
-    <CarModel gltfPath={modelPath} metadata={metadata} />
+    <group dispose={null}>
+      <ambientLight intensity={0.25} />
+      <OrbitControls enablePan={true} />
+      <Stage
+        shadows
+        adjustCamera
+      >
+        <CarModel gltfPath={modelPath} metadata={metadata} />
+      </Stage>
+    </group>
   </Canvas>
-  </>
 }
