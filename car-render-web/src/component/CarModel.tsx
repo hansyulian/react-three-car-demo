@@ -12,7 +12,6 @@ export const CarModel = (props: CarModelProps) => {
   const { gltfPath, metadata } = props;
   const gltf = useGLTF(gltfPath);
   const { scene } = gltf;
-  console.log(gltf);
 
   useLayoutEffect(() => {
     scene.traverse((obj: any) => {

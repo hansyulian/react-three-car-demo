@@ -8,14 +8,11 @@ export type Model3DMetadata = {
   components: Record<string, ComponentMetadata>
 }
 export type ComponentMetadata = {
-  animation?: AnimationMetadata;
+  onClickActions?: ActionMetadata[];
 }
-export type AnimationMetadata = {
-  eventType?: 'onClick',
-  rotation: {
-    x: number, // magnitude in Math.PI, 360 degree = 2Pi, thus inputting 0.6 means 60% of 180 degree
-    y: number,
-    z: number,
-    duration: number,
-  },
+
+export type ActionMetadata = {
+  type: 'animation',
+  name: string,
+  singleExecution?: boolean,
 }

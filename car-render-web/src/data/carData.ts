@@ -6,44 +6,44 @@ export const availableModels: Record<string, Model3D> = {
     metadata: {
       components: {
         leftDoor: {
-          animation: {
-            rotation: {
-              x: 0,
-              y: 0,
-              z: 0.3,
-              duration: 2,
-            }
-          },
+          // animation: {
+          //   rotation: {
+          //     x: 0,
+          //     y: 0,
+          //     z: 0.3,
+          //     duration: 2,
+          //   }
+          // },
         },
         rightDoor: {
-          animation: {
-            rotation: {
-              x: 0,
-              y: 0,
-              z: -0.3,
-              duration: 2,
-            }
-          }
+          // animation: {
+          //   rotation: {
+          //     x: 0,
+          //     y: 0,
+          //     z: -0.3,
+          //     duration: 2,
+          //   }
+          // }
         },
         engineCap: {
-          animation: {
-            rotation: {
-              x: -0.3,
-              y: 0,
-              z: 0,
-              duration: 2,
-            }
-          }
+          // animation: {
+          //   rotation: {
+          //     x: -0.3,
+          //     y: 0,
+          //     z: 0,
+          //     duration: 2,
+          //   }
+          // }
         },
         trunk: {
-          animation: {
-            rotation: {
-              x: 0.3,
-              y: 0,
-              z: 0,
-              duration: 2,
-            }
-          }
+          // animation: {
+          //   rotation: {
+          //     x: 0.3,
+          //     y: 0,
+          //     z: 0,
+          //     duration: 2,
+          //   }
+          // }
         }
       }
     }
@@ -53,36 +53,48 @@ export const availableModels: Record<string, Model3D> = {
     metadata: {
       components: {
         leftDoor: {
-          animation: {
-            rotation: {
-              x: 0.18,
-              y: 0,
-              z: 0.6,
-              duration: 2,
-            }
-          },
+          onClickActions: [{
+            type: 'animation',
+            name: 'leftDoorAction',
+          }]
+          // animation: {
+          //   rotation: {
+          //     x: 0.18,
+          //     y: 0,
+          //     z: 0.6,
+          //     duration: 2,
+          //   }
+          // },
         },
         rightDoor: {
-          animation: {
-            rotation: {
-              x: 0.18,
-              y: 0,
-              z: -0.6,
-              duration: 2,
-            }
-          }
+          onClickActions: [{
+            type: 'animation',
+            name: 'rightDoorAction',
+          }]
+          // animation: {
+          //   rotation: {
+          //     x: 0.18,
+          //     y: 0,
+          //     z: -0.6,
+          //     duration: 2,
+          //   }
+          // }
         },
         engineCap: {
-          animation: {
-            rotation: {
-              x: -0.3,
-              y: 0,
-              z: 0,
-              duration: 2,
-            }
-          }
+          onClickActions: [{
+            type: 'animation',
+            name: 'engineCapAction',
+          }]
+          // animation: {
+          //   rotation: {
+          //     x: -0.3,
+          //     y: 0,
+          //     z: 0,
+          //     duration: 2,
+          //   }
+          // }
         }
       }
     }
   }
-} as const;
+};

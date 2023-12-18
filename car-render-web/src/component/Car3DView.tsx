@@ -25,6 +25,7 @@ export const Car3DView = () => {
         shadows
         adjustCamera
       >
+
         <CarModel gltfPath={calculatedModelPath} metadata={metadata} />
       </Stage>
     </group>
