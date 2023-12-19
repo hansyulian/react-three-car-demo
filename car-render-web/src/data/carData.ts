@@ -6,44 +6,28 @@ export const availableModels: Record<string, Model3D> = {
     metadata: {
       components: {
         leftDoor: {
-          // animation: {
-          //   rotation: {
-          //     x: 0,
-          //     y: 0,
-          //     z: 0.3,
-          //     duration: 2,
-          //   }
-          // },
+          onClickActions: [{
+            type: 'animation',
+            name: 'leftDoorAction',
+          }]
         },
         rightDoor: {
-          // animation: {
-          //   rotation: {
-          //     x: 0,
-          //     y: 0,
-          //     z: -0.3,
-          //     duration: 2,
-          //   }
-          // }
+          onClickActions: [{
+            type: 'animation',
+            name: 'rightDoorAction',
+          }]
         },
         engineCap: {
-          // animation: {
-          //   rotation: {
-          //     x: -0.3,
-          //     y: 0,
-          //     z: 0,
-          //     duration: 2,
-          //   }
-          // }
+          onClickActions: [{
+            type: 'animation',
+            name: 'engineCapAction',
+          }]
         },
         trunk: {
-          // animation: {
-          //   rotation: {
-          //     x: 0.3,
-          //     y: 0,
-          //     z: 0,
-          //     duration: 2,
-          //   }
-          // }
+          onClickActions: [{
+            type: 'animation',
+            name: 'trunkAction'
+          }]
         }
       }
     }
@@ -57,42 +41,18 @@ export const availableModels: Record<string, Model3D> = {
             type: 'animation',
             name: 'leftDoorAction',
           }]
-          // animation: {
-          //   rotation: {
-          //     x: 0.18,
-          //     y: 0,
-          //     z: 0.6,
-          //     duration: 2,
-          //   }
-          // },
         },
         rightDoor: {
           onClickActions: [{
             type: 'animation',
             name: 'rightDoorAction',
           }]
-          // animation: {
-          //   rotation: {
-          //     x: 0.18,
-          //     y: 0,
-          //     z: -0.6,
-          //     duration: 2,
-          //   }
-          // }
         },
         engineCap: {
           onClickActions: [{
             type: 'animation',
             name: 'engineCapAction',
           }]
-          // animation: {
-          //   rotation: {
-          //     x: -0.3,
-          //     y: 0,
-          //     z: 0,
-          //     duration: 2,
-          //   }
-          // }
         }
       }
     }

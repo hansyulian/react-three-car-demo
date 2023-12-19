@@ -1,15 +1,21 @@
-import { Canvas, useThree } from "@react-three/fiber"
-import { OrbitControls, PerspectiveCamera, Stage, } from '@react-three/drei';
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, Stage, } from '@react-three/drei';
 import { CarModel, } from "./CarModel";
 import { availableModels } from "../data/carData";
 import { config } from "../config/config";
 
-const usedModel = availableModels.mclaren;
+type Car3DViewProps = {
+  modelName: string,
+}
 
-export const Car3DView = () => {
-  const { metadata, modelName } = usedModel;
+export const Car3DView = (props: Car3DViewProps) => {
+  const { modelName } = props;
+  const model = availableModels[modelName];
+  if (!model) {
+    return null;
+  }
 
-  const calculatedModelPath = `${config.baseModelPath}/${modelName}`;
+  const calculatedModelPath = `${config.baseModelPath}/${model.modelName}`;
   console.log(calculatedModelPath);
 
   return <Canvas
@@ -25,8 +31,7 @@ export const Car3DView = () => {
         shadows
         adjustCamera
       >
-
-        <CarModel gltfPath={calculatedModelPath} metadata={metadata} />
+        <CarModel gltfPath={calculatedModelPath} metadata={model.metadata} />
       </Stage>
     </group>
   </Canvas>
