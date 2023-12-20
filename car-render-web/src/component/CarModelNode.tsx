@@ -82,7 +82,8 @@ export const CarModelNode = (props: CarModelNodeProps) => {
   });
 
   if (filteredOnClickActions.length > 0) {
-    return <primitive object={node} onClick={onClick} />
+    node?.parent?.children.push(node); // hack for primitive tag bug?
+    return <primitive object={node} onClick={onClick} ref={groupRef} />
   }
 
   switch (node.type) {
@@ -106,13 +107,15 @@ export const CarModelNode = (props: CarModelNodeProps) => {
         scale={node.scale}
         ref={groupRef}
       >
-        {node.children.map(childNode => <CarModelNode
-          key={`node-${childNode.uuid}`}
-          gltf={gltf}
-          node={childNode}
-          metadata={metadata}
-        />)}
-      </group>
+        {
+          node.children.map(childNode => <CarModelNode
+            key={`node-${childNode.uuid}`}
+            gltf={gltf}
+            node={childNode}
+            metadata={metadata}
+          />)
+        }
+      </group >
   }
 
   return null;

@@ -6,7 +6,7 @@ function App() {
   const [modelName, setModelName] = useState('mclaren');
   return (
     <>
-      <Car3DView modelName={modelName} />
+      <Car3DView modelName={modelName} key={modelName} />
       <CarSelection value={modelName} onChange={setModelName} />
     </>
   );
